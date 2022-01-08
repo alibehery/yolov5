@@ -41,8 +41,8 @@ if __name__ == "__main__":
     parser.add_argument("--port", default=5000, type=int, help="port number")
     args = parser.parse_args()
 
-    model = torch.load(
-        r"C:\Users\Dell\Downloads\Final Project\yolov5-master", "best", pretrained=True, force_reload=True
+    model = torch.hub.load(
+        "alibehery/yolov5", "best", pretrained=True, force_reload=True
     ).autoshape()  # force_reload = recache latest code
     model.eval()
     app.run(host="0.0.0.0", port=args.port)  # debug=True causes Restarting with stat
